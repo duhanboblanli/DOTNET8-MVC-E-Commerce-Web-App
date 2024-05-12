@@ -20,5 +20,7 @@ namespace E_Commerce_Web_Application.Data
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
                 );
         }
+
+
     }
 }

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_Web_Application.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240512123939_AddCategoryTableToDb")]
-    partial class AddCategoryTableToDb
+    [Migration("20240512211037_SeedCategoryTable")]
+    partial class SeedCategoryTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
