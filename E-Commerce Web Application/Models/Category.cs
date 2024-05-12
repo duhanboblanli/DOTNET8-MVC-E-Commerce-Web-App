@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_Web_Application.Models
 {
@@ -6,8 +7,12 @@ namespace E_Commerce_Web_Application.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required] 
+        [Required]
+        [MaxLength(30)]
+        [DisplayName("Category Name")]
         public string Name { get; set; }
+        [DisplayName("Display Order")]
+        [Range(1, 100)]
         public int DisplayOrder { get; set; }
 
     }
