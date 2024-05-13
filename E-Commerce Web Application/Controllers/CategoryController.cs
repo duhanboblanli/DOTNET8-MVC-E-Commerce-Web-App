@@ -1,5 +1,5 @@
-﻿using E_Commerce_Web_Application.Data;
-using E_Commerce_Web_Application.Models;
+﻿using E.Data.Data;
+using E.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce_Web_Application.Controllers

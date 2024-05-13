@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace E_Commerce_Web_Application.Migrations
+namespace E.Data.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryTableToDB : Migration
