@@ -38,6 +38,7 @@ namespace E_Commerce_Web_Application.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category created succesfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -67,9 +68,44 @@ namespace E_Commerce_Web_Application.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category edited succesfully";
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Category categoryFromDb = _db.Categories.Find(id);
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
+        {
+
+            Category? obj = _db.Categories.Find(id);
+
+            if (obj == null) 
+            {
+                return NotFound();
+            }
+
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Category deleted succesfully";
+            return RedirectToAction("Index");  
         }
 
     }
