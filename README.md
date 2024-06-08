@@ -1,4 +1,4 @@
-# ASP.NET 8 MVC E-Commerce Web App & Web API
+# ASP.NET 8 MVC E-Commerce Web App & API
 
 This project involves creating an e-commerce platform with a separate API for business logic. Admin users can log in to add and manage product details, while the public interface allows users to view and order products. A comprehensive cart and checkout process are implemented, along with an order management system for the admin to review customer orders.
 
