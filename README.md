@@ -1,6 +1,6 @@
 # ASP.NET 8 MVC E-Commerce Web App & Web API
 
-This project involves creating a e-commerce platform with a separate API for business logic. Admin users can log in to add and manage product details, while the public interface allows users to view and order products. A comprehensive cart and checkout process are implemented, along with an order management system for the admin to review customer orders.
+This project involves creating an e-commerce platform with a separate API for business logic. Admin users can log in to add and manage product details, while the public interface allows users to view and order products. A comprehensive cart and checkout process are implemented, along with an order management system for the admin to review customer orders.
 
 ![1](https://github.com/duhanboblanli/DOTNET8-MVC-E-Commerce-Web-App/assets/77344408/1fed9b20-9cd2-4f70-87b7-81955963ebf5)
 ![ax](https://github.com/duhanboblanli/DOTNET8-MVC-E-Commerce-Web-App/assets/77344408/fce51178-c159-43a8-ab0e-2c5479497d84)
