@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\v2\**" />
+    <Content Remove="Controllers\v2\**" />
+    <EmbeddedResource Remove="Controllers\v2\**" />
+    <None Remove="Controllers\v2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220628161540_AddVillaTable.cs" />
+    <Compile Remove="Migrations\20220628161540_AddVillaTable.Designer.cs" />
+    <Compile Remove="Migrations\20220628162954_SeedVillaTable.cs" />
+    <Compile Remove="Migrations\20220628162954_SeedVillaTable.Designer.cs" />
+    <Compile Remove="Migrations\20220628163145_SeedVillaTableWithCreatedDate.cs" />
+    <Compile Remove="Migrations\20220628163145_SeedVillaTableWithCreatedDate.Designer.cs" />
+    <Compile Remove="Migrations\20220704150054_AddVillaNumberToDb.cs" />
+    <Compile Remove="Migrations\20220704150054_AddVillaNumberToDb.Designer.cs" />
+    <Compile Remove="Migrations\20220704151833_AddForeignKeyToVillaTable.cs" />
+    <Compile Remove="Migrations\20220704151833_AddForeignKeyToVillaTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0-preview.5.22303.8" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="7.0.0-preview.5.22303.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.0-preview.5.22303.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0-preview.5.22303.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0-preview.5.22302.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0-preview.5.22302.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+</Project>

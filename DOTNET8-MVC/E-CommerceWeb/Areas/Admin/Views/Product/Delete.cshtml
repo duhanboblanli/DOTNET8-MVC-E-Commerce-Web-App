@@ -1,0 +1,64 @@
+﻿@model Product
+<div class="card shadow border-0 my-4">
+    <div class="card-header" style="background: linear-gradient(to right, #007bff,#ADD8E6);">
+        <!-- Blue-white linear gradient -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Remove Product</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post">
+            <input asp-for="Id" hidden />
+            <div class="border p-3 mt-4">
+
+                 <div class="form-floating py-2 col-12">
+                      <input asp-for="Code" diasabled class="form-control border-0 shadow" />
+                      <label asp-for="Code" class="ms-2"></label>
+                  </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Title" diasabled class="form-control border-0 shadow" />
+                    <label asp-for="Title" class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Description" diasabled class="form-control border-0 shadow" />
+                    <label asp-for="Description" class="ms-2"></label>
+                </div>
+
+             
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Stock" diasabled class="form-control border-0 shadow" />
+                    <label asp-for="Stock" class="ms-2"></label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ListPrice" diasabled class="form-control border-0 shadow" />
+                    <label asp-for="ListPrice" class="ms-2"></label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="OpeningDate" diasabled class="form-control border-0 shadow" />
+                    <label asp-for="OpeningDate" class="ms-2"></label>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
+                    </div>
+                <div class="col-6 col-md-3">
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-primary form-control" style="background-color: #007bff; border-color: blue;">
+                        Back to List
+                    </a>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

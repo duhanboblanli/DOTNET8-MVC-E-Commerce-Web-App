@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+
+        @if (User.IsInRole(SD.Role_Admin))
+        {
+            <li class="nav-item">
+                <a class="nav-link" title="Admin Panel" style="background-color: #ADD8E6;">Admin Panel</a>
+            </li>
+
+
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link border-0">Logout</button>
+                </form>
+            </li>
+            
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link" title="Admin Panel" style="background-color: #ADD8E6;">Welcome!</a>
+            </li>
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link border-0">Logout</button>
+                </form>
+            </li>
+        }
+else
+{
+    <li class="nav-item">
+        <a class="nav-link " id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}
+</ul>

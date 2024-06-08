@@ -1,0 +1,110 @@
+﻿@model ProductVM
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header" style="background: linear-gradient(to right, #007bff,#ADD8E6);">
+        <div class="row">
+        <div class="col-12 text-center">
+                <h2 class="text-white py-2"> @(Model.Product.Id!=0?"Update":"Create") Product</h2>
+        </div>
+    </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Product.Id" hidden />
+           
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        @*<div asp-validation-summary="ModelOnly"></div>*@
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.Code" class="form-control border-0 shadow" />
+                            <label asp-for="Product.Code" class="ms-2"></label>
+                            <span asp-validation-for="Product.Code" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.Title" class="form-control border-0 shadow" />
+                            <label asp-for="Product.Title" class="ms-2"></label>
+                            <span asp-validation-for="Product.Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.Description" class="form-control border-0 shadow" />
+                            <label asp-for="Product.Description" class="ms-2"></label>
+                            <span asp-validation-for="Product.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.ListPrice" class="form-control border-0 shadow" />
+                            <label asp-for="Product.ListPrice" class="ms-2"></label>
+                            <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.Stock" class="form-control border-0 shadow" />
+                            <label asp-for="Product.Stock" class="ms-2"></label>
+                            <span asp-validation-for="Product.Stock" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Product.OpeningDate" class="form-control border-0 shadow" />
+                            <label asp-for="Product.OpeningDate" class="ms-2"></label>
+                            <span asp-validation-for="Product.OpeningDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input type="file" name="files" class="form-control border-0 shadow" multiple />
+                            <label asp-for="Product.ProductImages" class="ms-2"></label>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Product.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control" style="background-color: #007bff; ">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control" style="background-color: #007bff;">Create</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-primary form-control" style="background-color: #007bff;">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-2">
+                    @if (Model.Product.ProductImages != null) {
+                        foreach(var image in Model.Product.ProductImages) {
+                            <div class="border p-1 m-2 text-center">
+                                <img src="@image.ImageUrl" width="100%"
+                                     style="border-radius:5px; border:1px solid #bbb9b9" />
+                                     <a asp-action="DeleteImage" class="btn btn-danger" asp-route-imageId="@image.Id">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                     </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons  lists   table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough |  align lineheight | numlist bullist indent outdent',
+        });
+    </script>
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+}

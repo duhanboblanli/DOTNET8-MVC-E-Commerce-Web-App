@@ -1,0 +1,78 @@
+﻿@model List<Product>
+
+<div class="card shadow border-0 mt-4" style="background-color: #343a40;">
+    <div class="card-header" style="background: linear-gradient(to right, #007bff,#ADD8E6);">
+        <!-- Blue-white linear gradient -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Products</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Code</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>OpeningDate</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Title</td>
+
+                    <td>
+                        @obj.Code
+                    </td>
+                    <td>
+                        @obj.ListPrice
+                    </td>
+                    <td>
+                        @obj.Stock
+                    <td>
+                        @obj.OpeningDate
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-info mx-2">
+                                Update <i class="bi bi-pencil-square"></i>&nbsp;
+                            </a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-warning mx-2">
+                                Remove <i class="bi bi-trash-fill"></i>&nbsp;
+                            </a>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+          
+
+    <div class="card-body p-4">
+        <div>
+            <div>
+            </div>
+            <div>
+                <a asp-controller="Product" asp-action="Upsert" class="btn" style="background: linear-gradient(to right, #007bff,#007bff); color: #fff;">
+                    <!-- Blue-white linear gradient for button -->
+                    <!-- Keeping the primary button -->
+                    <i class="bi bi-database-add"></i>New Product
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/product.js"></script>
+}

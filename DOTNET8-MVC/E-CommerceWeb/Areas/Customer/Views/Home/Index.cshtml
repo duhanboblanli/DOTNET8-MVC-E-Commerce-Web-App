@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Product>
+
+<div class="row pb-3">
+    @foreach (var product in Model)
+    {
+        @if (product.Stock > 0 && product.OpeningDate < DateTime.Now)
+        {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 border-5 rounded" style="background: linear-gradient(to right, #007bff, #ffa500);">
+                        @if (product.ProductImages != null && product.ProductImages.Count() > 0)
+                        {
+                            <img src="@product.ProductImages.FirstOrDefault().ImageUrl" class="card-img-top rounded";" />
+                        }
+                        else
+                        {
+                            <img src="/images/product-placeholder.png" class="card-img-top rounded" />
+                            // <img src="/images/ege.png" style="width:40px" />
+                        }
+
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-white text-uppercase text-center">@product.Title</p>
+                                <p class="card-title text-white opacity-75 text-center"> <b>@product.Code</b></p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-opacity-90 text-center mb-0">
+                                    Stock:
+                                    <span class="text-dark text-opacity-90 text-center">
+                                        @product.Stock
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-opacity-90 text-center">
+                                    Price:
+                                    <span>
+                                        @product.ListPrice.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Details"
+                               asp-route-productId="@product.Id"
+                               class="btn btn-primary form-control" style="background-color: #343a40 !important; color: #f8f9fa;">
+                                Buy
+                            </a>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Views\Company\**" />
+    <Compile Remove="Models\**" />
+    <Content Remove="Areas\Admin\Views\Company\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\Company\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Areas\Admin\Views\Company\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Remove="Areas\Admin\Controllers\CompanyController.cs" />
+    <Compile Remove="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Remove="wwwroot\js\company.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\APIResponse.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Dto\LoginRequestDTO.cs" />
+    <Compile Include="Models\Dto\LoginResponseDTO.cs" />
+    <Compile Include="Models\Dto\OrderDetailDTO.cs" />
+    <Compile Include="Models\Dto\ProductDTO.cs" />
+    <Compile Include="Models\Dto\RegisterationRequestDTO.cs" />
+    <Compile Include="Models\Dto\ShipOrderDTO.cs" />
+    <Compile Include="Models\Dto\UserDTO.cs" />
+    <Compile Include="Models\ErrorViewModel.cs" />
+    <Compile Include="Models\LocalUser.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\OrderHeader.cs" />
+    <Compile Include="Models\Pagination.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="SendGrid" Version="9.29.3" />
+    <PackageReference Include="Stripe.net" Version="44.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\product\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+</Project>
